@@ -1,31 +1,60 @@
-Role Name
-=========
+gocd
+====
 
-A brief description of the role goes here.
+Installs and configures Go CD
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role requires Ansible 1.4 or higher.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Name                | Default   | Description                        |
+|---------------------|-----------|------------------------------------|
+| gocd_server_version | 15.1.0    | Version of Go CD server to install |
+| gocd_server         | false     | Install Go CD server               |
+| gocd_agent_version  | 15.1.0    | Version of Go CD agent to install  |
+| gocd_agent          | true      | Install Go CD agent                |
+| gocd_agent_server   | 127.0.0.1 | IP address or name of Go CD server |
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- kbrebanov.java (OpenJDK 7)
+- kbrebanov.unzip
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Install Go CD agent
+```
+- hosts: all
+  roles:
+    - { role: kbrebanov.gocd }
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Install Go CD agent specifying server address
+```
+- hosts: all
+  roles:
+    - { role: kbrebanov.gocd, gocd_agent_server: 192.168.1.1 }
+```
+
+Install Go CD server
+```
+- hosts: all
+  roles:
+    - { role: kbrebanov.gocd, gocd_server: true, gocd_agent: false }
+```
+
+Install Go CD server & agent
+```
+- hosts: all
+  roles:
+    - { role: kbrebanov.gocd, gocd_server: true, gocd_agent: true }
+```
 
 License
 -------
@@ -35,4 +64,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Kevin Brebanov

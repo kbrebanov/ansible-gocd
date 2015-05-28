@@ -1,0 +1,41 @@
+---
+# tasks file for gocd (Ubuntu specific)
+
+- name: Add Go CD APT key
+  apt_key: >
+    keyserver=keyserver.ubuntu.com
+    id=9149B0A6173454C7
+    state=present
+  tags: gocd
+
+- name: Add Go CD APT repository
+  apt_repository: >
+    repo='deb http://dl.bintray.com/gocd/gocd-deb /'
+    state=present
+  tags: gocd
+
+- name: Install Go CD server packages
+  apt: >
+    name={{ item }}
+    state=present
+    update_cache=yes
+    cache_valid_time=3600
+    force=yes
+  with_items: gocd_server_packages
+  when: gocd_server
+  tags:
+    - gocd
+    - gocd_server
+
+- name: Install Go CD agent packages
+  apt: >
+    name={{ item }}
+    state=present
+    update_cache=yes
+    cache_valid_time=3600
+    force=yes
+  with_items: gocd_agent_packages
+  when: gocd_agent
+  tags:
+    - gocd
+    - gocd_agent

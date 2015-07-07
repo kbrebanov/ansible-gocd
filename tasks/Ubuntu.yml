@@ -19,7 +19,6 @@
     name={{ item }}
     state=present
     update_cache=yes
-    cache_valid_time=3600
     force=yes
   with_items: gocd_server_packages
   when: gocd_server
@@ -32,7 +31,6 @@
     name={{ item }}
     state=present
     update_cache=yes
-    cache_valid_time=3600
     force=yes
   with_items: gocd_agent_packages
   when: gocd_agent

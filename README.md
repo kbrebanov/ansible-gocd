@@ -1,7 +1,7 @@
 gocd
 ====
 
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-kbrebanov.gocd-660198.svg)](https://galaxy.ansible.com/list#/roles/3961)
+[![Ansible Role](https://img.shields.io/ansible/role/3961.svg)](https://galaxy.ansible.com/list#/roles/3961)
 
 Installs and configures Go CD
 

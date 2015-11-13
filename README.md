@@ -15,9 +15,9 @@ Role Variables
 
 | Name                | Default   | Description                        |
 |---------------------|-----------|------------------------------------|
-| gocd_server_version | 15.1.0    | Version of Go CD server to install |
+| gocd_server_version | 15.2.0    | Version of Go CD server to install |
 | gocd_server         | false     | Install Go CD server               |
-| gocd_agent_version  | 15.1.0    | Version of Go CD agent to install  |
+| gocd_agent_version  | 15.2.0    | Version of Go CD agent to install  |
 | gocd_agent          | true      | Install Go CD agent                |
 | gocd_agent_server   | 127.0.0.1 | IP address or name of Go CD server |
 

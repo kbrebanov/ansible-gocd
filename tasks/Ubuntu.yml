@@ -4,13 +4,13 @@
 - name: Add Go CD APT key
   apt_key: >
     keyserver=keyserver.ubuntu.com
-    id=9149B0A6173454C7
+    id=8816C449
     state=present
   tags: gocd
 
 - name: Add Go CD APT repository
   apt_repository: >
-    repo='deb http://dl.bintray.com/gocd/gocd-deb /'
+    repo='deb https://download.go.cd /'
     state=present
   tags: gocd
 
